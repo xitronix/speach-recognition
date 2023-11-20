@@ -62,10 +62,11 @@ const user = reactive({
   password: null
 })
 
+const router = useRouter()
 const form = ref(null)
 const submit = async () => {
   if (form.value.validate() && !!await register(user)) {
-    const router = useRouter()
+    console.log({ router })
     router.push('/app')
   }
 }

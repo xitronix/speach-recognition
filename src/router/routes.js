@@ -1,11 +1,5 @@
 const routes = [
   {
-    path: "/app",
-    component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
-    meta: { auth: true },
-  },
-  {
     path: "/",
     component: () => import("layouts/AuthLayout.vue"),
     children: [
@@ -17,6 +11,12 @@ const routes = [
       },
     ],
     meta: { auth: false },
+  },
+  {
+    path: "/app",
+    component: () => import("layouts/MainLayout.vue"),
+    children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
+    meta: { auth: true },
   },
   {
     path: "/:catchAll(.*)*",

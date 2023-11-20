@@ -11,7 +11,7 @@ const register = async (data) => {
       data.email,
       data.password
     );
-    updateProfile(userCredential.user, {
+    await updateProfile(userCredential.user, {
       displayName: data.first_name + " " + data.last_name,
     });
 
