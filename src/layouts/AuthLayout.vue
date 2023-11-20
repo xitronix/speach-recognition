@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-page-container class="pt-0-important bg-auth">
+    <q-page-container class="pt-0-important bg-blue-grey-2">
       <q-page>
         <div class="row" style="height: 100vh">
           <div class="col-12 flex content-center justify-center">
@@ -26,7 +26,6 @@
 }
 
 .bg-auth {
-  background-color: #dbdada;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
