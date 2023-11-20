@@ -6,13 +6,8 @@
         <q-toolbar-title>
           QSpeech Recognition
         </q-toolbar-title>
+        <q-btn flat class="opacity-80" @click="signout">Logout</q-btn>
       </q-toolbar>
-
-      <q-tabs align="left">
-        <q-route-tab to="/one" label="Page One" />
-        <q-route-tab to="/two" label="Page Two" />
-        <q-route-tab to="/login" label="Login" />
-      </q-tabs>
     </q-header>
 
     <q-page-container>
@@ -29,3 +24,16 @@
 
   </q-layout>
 </template>
+
+
+<script setup>
+import logout from 'src/firebase/logout'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const signout = async () => {
+  await logout()
+  router.push('/login')
+}
+</script>
