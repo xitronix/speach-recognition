@@ -16,8 +16,14 @@ const routes = [
     path: "/app",
     component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: "/", redirect: "/record" },
-      { path: "record", component: () => import("src/pages/RecordPage.vue") },
+      {
+        path: "record",
+        component: () => import("src/pages/RecordPage.vue"),
+      },
+      {
+        path: "",
+        redirect: "record",
+      },
     ],
     meta: { auth: true },
   },
