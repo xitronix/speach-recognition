@@ -35,11 +35,18 @@ export default route(function (/* { store, ssrContext } */) {
   });
 
   Router.beforeEach((to, from, next) => {
-    if (to.meta.auth && !LocalStorage.has("user")) {
+    if (
+      to.meta.auth &&
+      !(LocalStorage.has("idToken") || LocalStorage.has("user"))
+    ) {
       return next("/login");
     }
 
-    if (!to.meta.auth && LocalStorage.has("user")) {
+    if (
+      !to.meta.auth &&
+      LocalStorage.has("idToken") &&
+      LocalStorage.has("user")
+    ) {
       return next("/app/record");
     }
 

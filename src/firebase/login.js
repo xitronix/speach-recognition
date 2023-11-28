@@ -1,6 +1,6 @@
 import { auth } from ".";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { Loading, Notify } from "quasar";
+import { Loading, Notify, LocalStorage } from "quasar";
 
 const login = async (data) => {
   Loading.show();
@@ -11,6 +11,7 @@ const login = async (data) => {
       data.email,
       data.password
     );
+    LocalStorage.set("idToken", await userCredentials.user.getIdToken());
     Loading.hide();
     return userCredentials.user;
   } catch (err) {

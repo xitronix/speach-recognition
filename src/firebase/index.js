@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getStorage } from "firebase/storage";
 import { LocalStorage } from "quasar";
 
 export const firebaseConfig = {
@@ -13,11 +14,14 @@ export const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+export const storage = getStorage(app);
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
     LocalStorage.set("user", user);
+    user.uid;
   } else {
     LocalStorage.remove("user");
+    LocalStorage.remove("idToken");
   }
 });
