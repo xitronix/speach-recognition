@@ -21,6 +21,10 @@ const routes = [
         component: () => import("src/pages/RecordPage.vue"),
       },
       {
+        path: "upload",
+        component: () => import("src/pages/ProcessAudio.vue"),
+      },
+      {
         path: "",
         redirect: "record",
       },
